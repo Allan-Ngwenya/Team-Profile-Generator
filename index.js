@@ -95,4 +95,35 @@ const questions = async () => {
 
 };
 
+async function promptQuestions() {
+	await questions()
+
+
+	const addMemberAns = await inquirer
+		.prompt([
+			{
+				name: 'addMember',
+				type: 'list',
+				choices: ['Add a new member', 'Create team'],
+				message: "What would you like to do next?"
+			}
+		])
+
+	if (addMemberAns.addMember === 'Add a new member') {
+		return promptQuestions()
+	}
+	return createTeam();
+}
+
+promptQuestions();
+
+function createTeam() {
+	console.log("new guy", newStaffMemberData)
+	fs.writeFileSync(
+		"./output/index.html",
+		generateTeam(newStaffMemberData),
+		"utf-8"
+	);
+}
+
 
