@@ -45,13 +45,6 @@ THEN I exit the application, and the HTML is generated
 - Chrome Dev Tools
 
 
-## Hosting
-
-| Project                            | Team-Profile-Generator URL                                       |
-|------------------------------------|-------------------------------------------------------|
-|      Team-Profile-Generator        | <>                                                    |
-
-
 ## Contributers
 
 - Mbongeni Allan Ngwenya
