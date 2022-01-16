@@ -37,4 +37,62 @@ const questions = async () => {
 				choices: ["Engineer", "Intern", "Manager"],
 			},
 		])
+	// manager selected
+	if (answers.role === "Manager") {
+		const managerAns = await inquirer
+			.prompt([
+				{
+					type: "input",
+					message: "What is your office number",
+					name: "officeNumber",
+				},
+			])
+		const newManager = new Manager(
+			answers.name,
+			answers.id,
+			answers.email,
+			managerAns.officeNumber
+		);
+		newStaffMemberData.push(newManager);
+
+		// engineer selected 
+	} else if (answers.role === "Engineer") {
+		const githubAns = await inquirer
+			.prompt([
+				{
+					type: "input",
+					message: "What is your GitHub user name?",
+					name: "github",
+				}
+			])
+		const newEngineer = new Engineer(
+			answers.name,
+			answers.id,
+			answers.email,
+			githubAns.github
+		);
+		newStaffMemberData.push(newEngineer);
+
+		// intern selected 
+	} else if (answers.role === "Intern") {
+		const internAns = await inquirer
+			.prompt([
+				{
+					type: "input",
+					message: "What university did you attend?",
+					name: "school",
+				},
+			])
+
+		const newIntern = new Intern(
+			answers.name,
+			answers.id,
+			answers.email,
+			internAns.school
+		);
+		newStaffMemberData.push(newIntern);
+	}
+
+};
+
 
